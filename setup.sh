@@ -14,5 +14,3 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -sf $SCRIPT_DIR/.$file ~/.$file
 done
-
-source ~/.zprofile
