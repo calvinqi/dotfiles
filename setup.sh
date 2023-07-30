@@ -14,3 +14,11 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -sf $SCRIPT_DIR/.$file ~/.$file
 done
+
+# Platform-specific
+if [ "$(uname)" == "Darwin" ]; then
+    source $SCRIPT_DIR/mac_config
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    echo 'Linux specific logic'
+fi
+
