@@ -1,6 +1,5 @@
 set nocompatible
 syntax enable
-# colorscheme delek " ron also a contender "
 set autoindent
 set tabstop=4
 set softtabstop=4
