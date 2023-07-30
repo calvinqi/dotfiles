@@ -1,11 +1,18 @@
+#!/bin/bash
+set -e
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 files="zprofile vimrc"
 olddir=~/dotfiles_old
 mkdir -p $olddir
+
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file $dotfiles_old
+    if [ -f "~/.$file" ]; then
+        echo "Moving existing dotfile $file to $olddir"
+        mv ~/.$file $olddir
+    fi
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/.$file ~/.$file
+    ln -sf $SCRIPT_DIR/.$file ~/.$file
 done
 
 source ~/.zprofile
