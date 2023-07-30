@@ -6,13 +6,14 @@ files="zprofile vimrc"
 olddir=~/dotfiles_old
 mkdir -p $olddir
 
+# Symlinking Dotfiles
 for file in $files; do
-    if [ -f "~/.$file" ]; then
+    if [ -f "$HOME/.$file" ]; then
         echo "Moving existing dotfile $file to $olddir"
-        mv ~/.$file $olddir
+        cp -f ~/.$file $olddir || true
     fi
     echo "Creating symlink to $file in home directory."
-    ln -sf $SCRIPT_DIR/.$file ~/.$file
+    ln -sf $SCRIPT_DIR/.$file $HOME/.$file
 done
 
 # Platform-specific
@@ -21,4 +22,3 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'Linux specific logic'
 fi
-
