@@ -1,4 +1,5 @@
 bindkey \^U backward-kill-line
+bindkey "^X\\x7f" backward-kill-line
 
 alias xbrew="arch -x86_64 /usr/local/bin/brew"
 
