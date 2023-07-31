@@ -25,4 +25,6 @@
 	"editor.minimap.enabled": false,
 	"extensions.autoUpdate": false,
 	"workbench.editor.pinnedTabSizing": "compact",
+    "gitlens.codeLens.enabled": false,
+	"gitlens.statusBar.enabled": false,
 }
